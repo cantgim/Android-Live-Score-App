@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.demolivescore.dto.ResultDto;
 import com.example.demolivescore.model.Country;
+import com.example.demolivescore.model.Data;
 import com.example.demolivescore.model.Federation;
 import com.example.demolivescore.service.CountryAPI;
 import com.example.demolivescore.service.RetrofitClient;
@@ -33,21 +33,18 @@ public class MainActivity extends AppCompatActivity {
         /**
          * GET list of countries
          */
-        Call<ResultDto> call = countryAPI.getListFederations();
+        Call<ResultDto> call = countryAPI.getListOfCountries();
         call.enqueue(new Callback<ResultDto>() {
             @Override
             public void onResponse(Call<ResultDto> call, Response<ResultDto> response) {
-//                Log.d("Countries", response.code() + "");
+                Log.d("Federation", response.code() + "");
                 String displayResponse = "";
+
                 ResultDto rsDto = response.body();
-                List<Federation> data = rsDto.getData();
-//                List<Country> data = rsDto.getData();
-//                Country country = data.get(0);
-//                Log.e("WTF", "Counnnnn" + country.getName() +"");
-                for (Federation item : data) {
+                Data data = rsDto.getData();
+                for (Country item : data.getCountry()) {
                     displayResponse += item.getId() + " " + item.getName() + "\n";
                 }
-
                 responseText.setText(displayResponse);
             }
 
@@ -57,4 +54,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-}
+ }

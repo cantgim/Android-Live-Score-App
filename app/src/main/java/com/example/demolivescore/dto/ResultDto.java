@@ -1,14 +1,33 @@
+
 package com.example.demolivescore.dto;
 
-import com.example.demolivescore.model.Country;
-import com.example.demolivescore.model.Federation;
+import com.example.demolivescore.model.Data;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-import lombok.Data;
-
-@Data
 public class ResultDto {
-    private boolean success;
-    private List<Federation> data;
+
+    @SerializedName("success")
+    @Expose
+    private Boolean success;
+    @SerializedName("data")
+    @Expose
+    private Data data;
+
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(Boolean success) {
+        this.success = success;
+    }
+
+    public Data getData() {
+        return data;
+    }
+
+    public void setData(Data data) {
+        this.data = data;
+    }
+
 }
