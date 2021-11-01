@@ -11,6 +11,10 @@ public class Data {
     @Expose
     private List<Country> country = null;
 
+    @SerializedName("table")
+    @Expose
+    private List<Team> table = null;
+
     public List<Country> getCountry() {
         return country;
     }
@@ -19,4 +23,11 @@ public class Data {
         this.country = country;
     }
 
+    public List<Team> getTable() {
+        return table;
+    }
+
+    public void setTable(List<Team> table) {
+        this.table = table;
+    }
 }
