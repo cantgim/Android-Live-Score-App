@@ -9,15 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.demolivescore.ui.favorites.FavoritesFragment;
-import com.example.demolivescore.ui.news.NewsFragment;
-import com.example.demolivescore.ui.scores.ScoresFragment;
+import com.example.demolivescore.fragments.favorites.FavoritesFragment;
+import com.example.demolivescore.fragments.news.NewsFragment;
+import com.example.demolivescore.fragments.scores.ScoresFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
-
-    private ActionBar toolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,31 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         //toolBar.setTitle("Scores");
         loadFragment(new ScoresFragment());
-        // countryAPI = RetrofitClient.getClient().create(CountryAPI.class);
-
-        /**
-         * GET list of countries
-         */
-//        Call<ResultDto> call = countryAPI.getListOfCountries();
-//        call.enqueue(new Callback<ResultDto>() {
-//            @Override
-//            public void onResponse(Call<ResultDto> call, Response<ResultDto> response) {
-//                Log.d("Federation", response.code() + "");
-//                String displayResponse = "";
-//
-//                ResultDto rsDto = response.body();
-//                Data data = rsDto.getData();
-//                for (Country item : data.getCountry()) {
-//                    displayResponse += item.getId() + " " + item.getName() + "\n";
-//                }
-//                responseText.setText(displayResponse);
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResultDto> call, Throwable t) {
-//                call.cancel();
-//            }
-//        });
     }
 
     private NavigationBarView.OnItemSelectedListener mOnItemSelectedListener = new NavigationBarView.OnItemSelectedListener() {

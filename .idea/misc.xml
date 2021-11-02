@@ -16,6 +16,7 @@
         <entry key="app/src/main/res/layout/fragment_favorites.xml" value="0.10625" />
         <entry key="app/src/main/res/layout/fragment_news.xml" value="0.1203125" />
         <entry key="app/src/main/res/layout/fragment_scores.xml" value="0.17391304347826086" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.1693840579710145" />
         <entry key="app/src/main/res/menu/navigation.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/menu/navigation_bottom.xml" value="0.1203125" />
         <entry key="app/src/main/res/menu/top_app_bar.xml" value="0.23802083333333332" />

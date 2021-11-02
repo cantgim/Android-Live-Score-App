@@ -1,4 +1,4 @@
-package com.example.demolivescore.ui.favorites;
+package com.example.demolivescore.fragments.news;
 
 import android.os.Bundle;
 
@@ -9,17 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.demolivescore.R;
-import com.google.android.material.appbar.MaterialToolbar;
 
-public class FavoritesFragment extends Fragment {
+public class NewsFragment extends Fragment {
 
-    //private MaterialToolbar mToolbar;
-    public FavoritesFragment() {
+    public NewsFragment() {
         // Required empty public constructor
     }
 
-    public static FavoritesFragment newInstance(String param1, String param2) {
-        FavoritesFragment fragment = new FavoritesFragment();
+    public static NewsFragment newInstance(String param1, String param2) {
+        NewsFragment fragment = new NewsFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -28,14 +26,12 @@ public class FavoritesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorites, container, false);
+        return inflater.inflate(R.layout.fragment_news, container, false);
     }
-
 }
