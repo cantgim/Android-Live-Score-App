@@ -9,9 +9,22 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.demolivescore.dto.ResultDto;
+import com.example.demolivescore.model.Data;
+import com.example.demolivescore.model.Team;
+import com.example.demolivescore.service.CountryAPI;
+import com.example.demolivescore.service.RetrofitClient;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -67,14 +80,43 @@ public class FragmentStanding extends Fragment {
         return inflater.inflate(R.layout.fragment_standing, container, false);
     }
     RecyclerView recyclerView;
+    CountryAPI countryAPI;
+    RecyclerAdapterStanding adapterStanding;
+    ArrayList<Team> teams = new ArrayList<>();
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        countryAPI = RetrofitClient.getClient().create(CountryAPI.class);
+        recyclerView = view.findViewById(R.id.recyclerViewStanding);
+        Call<ResultDto> call = countryAPI.getListLeagueStanding();
+        call.enqueue(new Callback<ResultDto>() {
+            @Override
+            public void onResponse(Call<ResultDto> call, Response<ResultDto> response) {
+                Log.d("Federation", response.code() + "");
+
+                ResultDto rsDto = response.body();
+                Data data = rsDto.getData();
+                for (Team team : data.getTable()) {
+                    teams.add(team);
+                }
+
+                adapterStanding = new RecyclerAdapterStanding(teams);
+                adapterStanding.context = getActivity().getApplicationContext();
+                recyclerView.setAdapter(adapterStanding);
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ResultDto> call, Throwable t) {
+                call.cancel();
+            }
+        });
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
     }
 
     @Override
     public void onAttach(@NonNull Context context) {
-
         super.onAttach(context);
 
     }

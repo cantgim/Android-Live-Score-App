@@ -38,32 +38,32 @@ public class MainActivity extends AppCompatActivity {
         /**
          * GET list of countries
          */
-        Call<ResultDto> call = countryAPI.getListLeagueStanding();
-        call.enqueue(new Callback<ResultDto>() {
-            @Override
-            public void onResponse(Call<ResultDto> call, Response<ResultDto> response) {
-                Log.d("Federation", response.code() + "");
+//        Call<ResultDto> call = countryAPI.getListLeagueStanding();
+//        call.enqueue(new Callback<ResultDto>() {
+//            @Override
+//            public void onResponse(Call<ResultDto> call, Response<ResultDto> response) {
+//                Log.d("Federation", response.code() + "");
+//
+//                ResultDto rsDto = response.body();
+//                Data data = rsDto.getData();
+//                for (Team team : data.getTable()) {
+//                      teams.add(team);
+//                }
+//
+//                adapterStanding = new RecyclerAdapterStanding(teams);
+//                adapterStanding.context = getApplicationContext();
+//                view.setAdapter(adapterStanding);
+//                view.setLayoutManager(new LinearLayoutManager());
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResultDto> call, Throwable t) {
+//                call.cancel();
+//            }
+//        });
 
-                ResultDto rsDto = response.body();
-                Data data = rsDto.getData();
-                for (Team team : data.getTable()) {
-                      teams.add(team);
-                }
 
-                adapterStanding = new RecyclerAdapterStanding(teams);
-                adapterStanding.context = getApplicationContext();
-                view.setAdapter(adapterStanding);
-
-
-            }
-
-            @Override
-            public void onFailure(Call<ResultDto> call, Throwable t) {
-                call.cancel();
-            }
-        });
-
-        view.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
     }
 

@@ -55,7 +55,7 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="104dp"
         android:layout_marginEnd="16dp"
         android:text="PTS"
         android:textColor="#FFFFFF"
@@ -80,7 +80,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewStanding"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="512dp"
         android:layout_marginBottom="44dp"
         android:background="#000000"

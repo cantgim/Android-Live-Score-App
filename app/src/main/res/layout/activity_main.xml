@@ -10,14 +10,14 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frameLayoutStanding"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:name="com.example.demolivescore.FragmentStanding"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_standing"
-        />
+        tools:layout="@layout/fragment_standing" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
