@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/match_border.xml" value="0.2546875" />
         <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_main.xml" value="0.4742468415937804" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_match_detail.xml" value="0.4" />
         <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/live_score_row.xml" value="0.264" />
         <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/score_row.xml" value="0.4" />
         <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />

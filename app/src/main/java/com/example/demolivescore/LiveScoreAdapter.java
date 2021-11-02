@@ -37,9 +37,9 @@ public class LiveScoreAdapter extends RecyclerView.Adapter<LiveScoreAdapter.View
         Match match = matches.get(position);
         holder.status.setText("Live");
         holder.away.setText(match.getAwayName());
-        holder.awayScore.setText(match.getScore().substring(4));
+        holder.awayScore.setText(match.getScore().substring(4).trim());
         holder.home.setText(match.getHomeName());
-        holder.homeScore.setText(match.getScore().substring(0,2));
+        holder.homeScore.setText(match.getScore().substring(0,2).trim());
 
     }
 
