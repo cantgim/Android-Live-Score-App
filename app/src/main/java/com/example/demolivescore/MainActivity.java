@@ -1,57 +1,94 @@
 package com.example.demolivescore;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
+import android.view.MenuItem;
 
-import com.example.demolivescore.dto.ResultDto;
-import com.example.demolivescore.model.Country;
-import com.example.demolivescore.model.Data;
-import com.example.demolivescore.model.Federation;
-import com.example.demolivescore.service.CountryAPI;
-import com.example.demolivescore.service.RetrofitClient;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.example.demolivescore.ui.favorites.FavoritesFragment;
+import com.example.demolivescore.ui.news.NewsFragment;
+import com.example.demolivescore.ui.scores.ScoresFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView responseText;
-    CountryAPI countryAPI;
+    private ActionBar toolBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        responseText = (TextView) findViewById(R.id.responseText);
-        countryAPI = RetrofitClient.getClient().create(CountryAPI.class);
+        //toolBar = getSupportActionBar();
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation_bottom);
+        navigation.setOnItemSelectedListener(mOnItemSelectedListener);
+
+        //toolBar.setTitle("Scores");
+        loadFragment(new ScoresFragment());
+        // countryAPI = RetrofitClient.getClient().create(CountryAPI.class);
 
         /**
          * GET list of countries
          */
-        Call<ResultDto> call = countryAPI.getListOfCountries();
-        call.enqueue(new Callback<ResultDto>() {
-            @Override
-            public void onResponse(Call<ResultDto> call, Response<ResultDto> response) {
-                Log.d("Federation", response.code() + "");
-                String displayResponse = "";
+//        Call<ResultDto> call = countryAPI.getListOfCountries();
+//        call.enqueue(new Callback<ResultDto>() {
+//            @Override
+//            public void onResponse(Call<ResultDto> call, Response<ResultDto> response) {
+//                Log.d("Federation", response.code() + "");
+//                String displayResponse = "";
+//
+//                ResultDto rsDto = response.body();
+//                Data data = rsDto.getData();
+//                for (Country item : data.getCountry()) {
+//                    displayResponse += item.getId() + " " + item.getName() + "\n";
+//                }
+//                responseText.setText(displayResponse);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResultDto> call, Throwable t) {
+//                call.cancel();
+//            }
+//        });
+    }
 
-                ResultDto rsDto = response.body();
-                Data data = rsDto.getData();
-                for (Country item : data.getCountry()) {
-                    displayResponse += item.getId() + " " + item.getName() + "\n";
-                }
-                responseText.setText(displayResponse);
+    private NavigationBarView.OnItemSelectedListener mOnItemSelectedListener = new NavigationBarView.OnItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment fragment;
+            switch (item.getItemId()) {
+                case R.id.navigation_scores:
+                    //toolBar.setTitle("Scores");
+                    fragment = new ScoresFragment();
+                    loadFragment(fragment);
+                    return true;
+                case R.id.navigation_favorites:
+                    fragment = new FavoritesFragment();
+                    loadFragment(fragment);
+                    //toolBar.setTitle("Favorites");
+                    return true;
+                case R.id.navigation_news:
+                    //toolBar.setTitle("News");
+                    fragment = new NewsFragment();
+                    loadFragment(fragment);
+                    return true;
+                case R.id.navigation_refresh:
+                    //toolBar.setTitle("Refresh");
+                    return true;
             }
+            return false;
+        }
+    };
 
-            @Override
-            public void onFailure(Call<ResultDto> call, Throwable t) {
-                call.cancel();
-            }
-        });
+    private void loadFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
  }
