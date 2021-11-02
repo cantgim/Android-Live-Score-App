@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.demolivescore.model.Match;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
 import lombok.NonNull;
 @Data
 public class LiveScoreAdapter extends RecyclerView.Adapter<LiveScoreAdapter.ViewHolder> {
-    private List<Match> matches;
+    private ArrayList<Match> matches;
     private Context mContext;
 
     @androidx.annotation.NonNull
@@ -39,6 +40,7 @@ public class LiveScoreAdapter extends RecyclerView.Adapter<LiveScoreAdapter.View
         holder.awayScore.setText(match.getScore().substring(4));
         holder.home.setText(match.getHomeName());
         holder.homeScore.setText(match.getScore().substring(0,2));
+
     }
 
     @Override
@@ -55,7 +57,7 @@ public class LiveScoreAdapter extends RecyclerView.Adapter<LiveScoreAdapter.View
         private TextView homeScore;
         private TextView awayScore;
 
-        public ViewHolder(@NonNull View itemView){
+        public ViewHolder(@androidx.annotation.NonNull View itemView){
             super(itemView);
             status = itemView.findViewById(R.id.txtMatchStatus);
             home = itemView.findViewById(R.id.txtHomeName);

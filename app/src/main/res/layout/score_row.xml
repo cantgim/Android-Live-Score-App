@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-3dp">
 
@@ -28,10 +28,12 @@
         android:id="@+id/txtAwayName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Away"
-        app:layout_constraintTop_toBottomOf="@+id/txtHomeName"
-        tools:layout_editor_absoluteX="118dp" />
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/txtHomeName" />
 
     <TextView
         android:id="@+id/txtMatchStatus"

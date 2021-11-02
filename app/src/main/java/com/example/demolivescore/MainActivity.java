@@ -1,6 +1,7 @@
 package com.example.demolivescore;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.example.demolivescore.service.CountryAPI;
 import com.example.demolivescore.service.LiveScoreAPI;
 import com.example.demolivescore.service.RetrofitClient;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -31,16 +33,16 @@ public class MainActivity extends AppCompatActivity {
     LiveScoreAPI liveScoreAPI;
     RecyclerView recyclerView;
     LiveScoreAdapter liveScoreAdapter;
-    List<Match> matches;
+    ArrayList<Match> matches;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        responseText = (TextView) findViewById(R.id.responseText);
-        countryAPI = RetrofitClient.getClient().create(CountryAPI.class);
+        //responseText = (TextView) findViewById(R.id.responseText);
+        //countryAPI = RetrofitClient.getClient().create(CountryAPI.class);
         liveScoreAPI = RetrofitClient.getClient().create(LiveScoreAPI.class);
         recyclerView = findViewById(R.id.liveScoreView);
-
+        matches = new ArrayList<>();
 
         /**
          * GET list of countries
@@ -65,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
 //                call.cancel();
 //            }
 //        });
+        liveScoreAdapter = new LiveScoreAdapter();
+
         Call<LiveScoreDto> call = liveScoreAPI.getLiveScore();
         call.enqueue(new Callback<LiveScoreDto>() {
             @Override
@@ -72,13 +76,14 @@ public class MainActivity extends AppCompatActivity {
                 String displayResponse = "";
                 LiveScoreDto lsDto = response.body();
                 LiveScoreData data = lsDto.getData();
-//                for(Match match : data.getMatch()){
-//                    displayResponse += match.getHomeName()+" "+match.getScore()+ " " + match.getAwayName() + "\n";
-//                }
+                for(Match match : data.getMatch()){
+                    matches.add(match);
+                }
 //                responseText.setText(displayResponse);
-                matches = data.getMatch();
-
-
+                //matches = (ArrayList<Match>) data.getMatch();
+                liveScoreAdapter.setMatches(matches);
+                liveScoreAdapter.setMContext(getApplicationContext());
+                recyclerView.setAdapter(liveScoreAdapter);
             }
 
             @Override
@@ -86,9 +91,9 @@ public class MainActivity extends AppCompatActivity {
                 call.cancel();
             }
         });
-        liveScoreAdapter = new LiveScoreAdapter();
-        liveScoreAdapter.setMatches(matches);
-        liveScoreAdapter.setMContext(this);
-        recyclerView.setAdapter(liveScoreAdapter);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
     }
  }
