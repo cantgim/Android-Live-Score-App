@@ -1,6 +1,7 @@
 package com.example.demolivescore.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.demolivescore.R;
 import com.example.demolivescore.model.News;
+import com.example.demolivescore.ui.detail.Detail_News;
+import com.example.demolivescore.ui.search.SearchActivity;
 
 import java.util.List;
 
@@ -64,7 +67,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(view.getContext(), "News" + (getAdapterPosition() + 1) + " is clicked ", Toast.LENGTH_LONG).show();
+                    if(getAdapterPosition() == 0){
+                        Intent intent = new Intent(context, Detail_News.class);
+                        context.startActivity(intent);
+                    }
                 }
             });
         }
