@@ -1,6 +1,7 @@
 package com.example.demolivescore;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,19 @@ public class LiveScoreAdapter extends RecyclerView.Adapter<LiveScoreAdapter.View
         holder.home.setText(match.getHomeName());
         holder.homeScore.setText(match.getScore().substring(0,2).trim());
 
+        holder.setMatchClickListener(new MatchClickListener() {
+            @Override
+            public void onClick(View view, int position, boolean isLongClick) {
+                if(!isLongClick){
+                    Intent intent = new Intent(holder.itemView.getContext(),DetailMatchActivity.class);
+                    intent.putExtra("match_id",match.getId());
+                    intent.putExtra("score",match.getScore());
+                    intent.putExtra("home_name",match.getHomeName());
+                    intent.putExtra("away_name",match.getAwayName());
+                    holder.itemView.getContext().startActivity(intent);
+                }
+            }
+        });
     }
 
     @Override
@@ -48,7 +62,7 @@ public class LiveScoreAdapter extends RecyclerView.Adapter<LiveScoreAdapter.View
         return matches.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView status;
         private TextView home;
         private TextView away;
@@ -57,6 +71,7 @@ public class LiveScoreAdapter extends RecyclerView.Adapter<LiveScoreAdapter.View
         private TextView homeScore;
         private TextView awayScore;
 
+        private MatchClickListener matchClickListener;
         public ViewHolder(@androidx.annotation.NonNull View itemView){
             super(itemView);
             status = itemView.findViewById(R.id.txtMatchStatus);
@@ -66,7 +81,18 @@ public class LiveScoreAdapter extends RecyclerView.Adapter<LiveScoreAdapter.View
             away_logo = itemView.findViewById(R.id.imageView2);
             homeScore = itemView.findViewById(R.id.txtHomeScore);
             awayScore = itemView.findViewById(R.id.txtAwayScore);
+            itemView.setOnClickListener(this);
 
         }
+
+        public void setMatchClickListener(MatchClickListener matchClickListener) {
+            this.matchClickListener = matchClickListener;
+        }
+
+        @Override
+        public void onClick(View view) {
+            matchClickListener.onClick(view,getAdapterPosition(),false);
+        }
+
     }
 }

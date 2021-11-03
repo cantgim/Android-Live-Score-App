@@ -17,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.demolivescore.ui.main.SectionsPagerAdapter;
 import com.example.demolivescore.databinding.ActivityDetailMatchBinding;
@@ -50,6 +52,11 @@ public class DetailMatchActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         String matchId = extras.getString("match_id");
+
+        String score = extras.getString("score");
+        String home_name = extras.getString("home_name");
+        String away_name = extras.getString("away_name");
+
         matchAPI = RetrofitClient.getClient().create(MatchAPI.class);
         Call<MatchDetailDto> call = matchAPI.getMatchStatistic(matchId);
         call.enqueue(new Callback<MatchDetailDto>() {
@@ -64,6 +71,46 @@ public class DetailMatchActivity extends AppCompatActivity {
                 call.cancel();
             }
         });
+
+        TextView txtScore = this.findViewById(R.id.txtScore);
+        txtScore.setText(score);
+        TextView txtHome = this.findViewById(R.id.txtHome);
+        txtHome.setText(home_name);
+        ImageView imgHome = this.findViewById(R.id.imgHome);
+
+        TextView txtHomeOnTarget = this.findViewById(R.id.txtHomeOnTarget);
+        txtHomeOnTarget.setText(getHomeData(data.getShotsOnTarget()));
+        TextView txtHomeOffTarget = this.findViewById(R.id.txtHomeOfftarget);
+        txtHomeOffTarget.setText(getHomeData(data.getShotsOffTarget()));
+        TextView txtHomePossession = this.findViewById(R.id.txtHomePossession);
+        txtHomePossession.setText(getHomeData(data.getPossesion()));
+        TextView txtHomeOffside = this.findViewById(R.id.txtHomeOffsides);
+        txtHomeOffside.setText(getHomeData(data.getOffsides()));
+        TextView txtHomeYellowCard = this.findViewById(R.id.txtHomeYellowCard);
+        txtHomeYellowCard.setText(getHomeData(data.getYellowCards()));
+        TextView txtHomeRedCard = this.findViewById(R.id.txtHomeRedCard);
+        txtHomeRedCard.setText(getHomeData(data.getRedCards()));
+        TextView txtHomeConner = this.findViewById(R.id.txtHomeConner);
+        txtHomeConner.setText(getHomeData(data.getCorners()));
+
+        TextView txtAway = this.findViewById(R.id.txtAway);
+        txtAway.setText(away_name);
+        ImageView imgAway = this.findViewById(R.id.imgAway);
+        TextView txtAwayOnTarget = this.findViewById(R.id.txtAwayOnTarget);
+        txtAwayOnTarget.setText(getAwayData(data.getShotsOnTarget()));
+        TextView txtAwayOffTarget = this.findViewById(R.id.txtAwayOffTarget);
+        txtAwayOffTarget.setText(getAwayData(data.getShotsOffTarget()));
+        TextView txtAwayPossession = this.findViewById(R.id.txtAwayPossession);
+        txtAwayPossession.setText(getAwayData(data.getPossesion()));
+        TextView txtAwayOffside = this.findViewById(R.id.txtAwayOffside);
+        txtAwayOffside.setText(getAwayData(data.getOffsides()));
+        TextView txtAwayYellowCard = this.findViewById(R.id.txtAwayYellowCard);
+        txtAwayYellowCard.setText(getAwayData(data.getYellowCards()));
+        TextView txtAwayRedCard = this.findViewById(R.id.txtAwayRedCard);
+        txtAwayRedCard.setText(getAwayData(data.getYellowCards()));
+        TextView txtAwayConner = this.findViewById(R.id.txtAwayConner);
+        txtAwayConner.setText(getAwayData(data.getCorners()));
+
     }
     public String getHomeData(String raw_data){
         if(raw_data.isEmpty()|| raw_data==null){
