@@ -6,6 +6,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -51,36 +55,96 @@ public class FragmentStanding extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_standing, container, false);
     }
+
     RecyclerView recyclerView;
     CountryAPI countryAPI;
     RecyclerAdapterStanding adapterStanding;
     ArrayList<Team> teams = new ArrayList<>();
+    Spinner spinner;
+    String league[] = {"PremierLeague","Laliga"};
+    Call<TeamDto> call;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         countryAPI = RetrofitClient.getClient().create(CountryAPI.class);
         recyclerView = view.findViewById(R.id.recyclerViewStanding);
-        Call<TeamDto> call = countryAPI.getListLeagueStanding();
-        call.enqueue(new Callback<TeamDto>() {
+
+
+        spinner = view.findViewById(R.id.spinnerSearchLeague);
+        ArrayAdapter<String> adapter = new ArrayAdapter(view.getContext(),
+                android.R.layout.simple_spinner_item, league);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onResponse(Call<TeamDto> call, Response<TeamDto> response) {
-                TeamDto rsDto = response.body();
-                TeamData data = rsDto.getData();
-                for (Team team : data.getTable()) {
-                    teams.add(team);
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Adapter adapter = adapterView.getAdapter();
+                String league = (String) adapter.getItem(i);
+                teams.removeAll(teams);
+                if(league.equals("PremierLeague")){
+
+                    call = countryAPI.getListLeagueStanding();
+                    call.enqueue(new Callback<TeamDto>() {
+                        @Override
+                        public void onResponse(Call<TeamDto> call, Response<TeamDto> response) {
+                            TeamDto rsDto = response.body();
+                            TeamData data = rsDto.getData();
+                            for (Team team : data.getTable()) {
+                                teams.add(team);
+                            }
+
+                            adapterStanding = new RecyclerAdapterStanding(teams);
+                            adapterStanding.context = getActivity().getApplicationContext();
+                            recyclerView.setAdapter(adapterStanding);
+
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<TeamDto> call, Throwable t) {
+                            call.cancel();
+                        }
+                    });
+                    recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+                }
+                if(league.equals("Laliga")){
+
+                    call = countryAPI.getListLeagueStandingLaliga();
+                    call.enqueue(new Callback<TeamDto>() {
+                        @Override
+                        public void onResponse(Call<TeamDto> call, Response<TeamDto> response) {
+                            TeamDto rsDto = response.body();
+                            TeamData data = rsDto.getData();
+                            for (Team team : data.getTable()) {
+                                teams.add(team);
+                            }
+
+                            adapterStanding = new RecyclerAdapterStanding(teams);
+                            adapterStanding.context = getActivity().getApplicationContext();
+                            recyclerView.setAdapter(adapterStanding);
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<TeamDto> call, Throwable t) {
+                            call.cancel();
+                        }
+                    });
+                    recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+
                 }
 
-                adapterStanding = new RecyclerAdapterStanding(teams);
-                adapterStanding.context = getActivity().getApplicationContext();
-                recyclerView.setAdapter(adapterStanding);
             }
 
             @Override
-            public void onFailure(Call<TeamDto> call, Throwable t) {
-                call.cancel();
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+
+
     }
 
     @Override

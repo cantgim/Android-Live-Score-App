@@ -15,4 +15,7 @@ public interface CountryAPI {
 
     @GET("leagues/table.json?key=PJRGYfC1NxmGPPnn&secret=8VPl12cJkrkOWbNLUErTU4VHBhoq6LNe&competition_id=2")
     Call<TeamDto> getListLeagueStanding();
+
+    @GET("leagues/table.json?key=PJRGYfC1NxmGPPnn&secret=8VPl12cJkrkOWbNLUErTU4VHBhoq6LNe&competition_id=3")
+    Call<TeamDto> getListLeagueStandingLaliga();
 }

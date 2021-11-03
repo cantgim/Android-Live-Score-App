@@ -23,7 +23,7 @@ import com.example.demolivescore.ui.detail.DetailMatchActivity;
 import com.example.demolivescore.ui.search.SearchActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-import com.pnikosis.materialishprogress.ProgressWheel;
+
 
 public class MainActivity extends AppCompatActivity {
 

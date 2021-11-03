@@ -41,10 +41,46 @@ public class RecyclerAdapterStanding extends RecyclerView.Adapter<RecyclerAdapte
         holder.textViewMatch.setText(team.getMatches());
         holder.textViewGoalDiff.setText(team.getGoal_diff());
         holder.textViewPoint.setText(team.getPoints());
-        Glide.with(context)
-                .load("https://lsm-static-prod.livescore.com/medium/enet/9825.png")
-                .apply(new RequestOptions().override(100, 100))
-                .into(holder.imageView);
+//        Glide.with(context)
+//                .load("https://lsm-static-prod.livescore.com/medium/enet/9825.png")
+//                .apply(new RequestOptions().override(100, 100))
+//                .into(holder.imageView);
+        switch (position){
+            case 0:
+                holder.imageView.setImageResource(R.drawable.chelsea);
+                break;
+            case 1:
+                holder.imageView.setImageResource(R.drawable.liverpool);
+                break;
+            case 2:
+                holder.imageView.setImageResource(R.drawable.mancity);
+                break;
+            case 3:
+                holder.imageView.setImageResource(R.drawable.westham);
+                break;
+            case 4:
+                holder.imageView.setImageResource(R.drawable.manu);
+                break;
+            case 5:
+                holder.imageView.setImageResource(R.drawable.arsenal);
+                break;
+            case 6:
+                holder.imageView.setImageResource(R.drawable.wolve);
+                break;
+            case 7:
+                holder.imageView.setImageResource(R.drawable.brighton);
+                break;
+            case 8:
+                holder.imageView.setImageResource(R.drawable.tottenham);
+                break;
+            case 9:
+                holder.imageView.setImageResource(R.drawable.everton);
+                break;
+            default:
+                holder.imageView.setImageResource(R.drawable.westham);
+                break;
+        }
+
     }
 
     @Override
