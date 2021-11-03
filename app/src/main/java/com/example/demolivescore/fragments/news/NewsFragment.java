@@ -63,7 +63,7 @@ public class NewsFragment extends Fragment {
 
     private void fetchNewsItems(){
         ArrayList<News> items = new ArrayList<>();
-        items.add(new News(R.drawable.p1,"Barca star Alba bemoans 'bad point' after Alaves draw", "15 hours ago"));
+        items.add(new News(R.drawable.p1,"Scholes: Pogba will be doing the same stupid stuff at 35  ", "15 hours ago"));
         items.add(new News(R.drawable.p2,"Mourinho having 'fun' despite admitting Roma job is 'tough'\n" +
                 "\n", "16 hours ago"));
         items.add(new News(R.drawable.p3,"'Dizzy' Aguero taken to hospital for cardiac exam, Barcelona confirm", "1 days ago"));
