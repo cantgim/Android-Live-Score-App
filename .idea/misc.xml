@@ -6,7 +6,6 @@
         <entry key="..\:/Users/admin/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.1671195652173913" />
         <entry key="..\:/Users/admin/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/border.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/admin/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_search.xml" value="0.17300724637681159" />
         <entry key="..\:/Users/admin/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_tab.xml" value="0.16530797101449277" />
         <entry key="..\:/Users/admin/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_standing.xml" value="0.25" />
         <entry key="..\:/Users/admin/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_tab.xml" value="0.33" />
@@ -26,12 +25,13 @@
         <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_match_detail.xml" value="0.259375" />
         <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_search.xml" value="0.259375" />
         <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/border_search.xml" value="0.2453125" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fixture_item.xml" value="0.259375" />
+        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fixture_item.xml" value="0.6" />
         <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_detail_match.xml" value="0.254981884057971" />
         <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_favorites.xml" value="0.254981884057971" />
         <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_list_match.xml" value="0.254981884057971" />
         <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_news.xml" value="0.254981884057971" />
         <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_scores.xml" value="0.254981884057971" />
+        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_standing.xml" value="0.259375" />
         <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/item.xml" value="0.264" />
         <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/item_layout.xml" value="0.536" />
         <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/item_layout2.xml" value="0.4" />
