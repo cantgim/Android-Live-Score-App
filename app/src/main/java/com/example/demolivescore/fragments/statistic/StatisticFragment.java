@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,6 +79,49 @@ public class StatisticFragment extends Fragment {
                 MatchDetailDto matchDetailDto = response.body();
                 try{
                     data = matchDetailDto.getData();
+                    TextView txtScore = view.findViewById(R.id.txtScore);
+                    txtScore.setText(score);
+
+                    //set home stat
+                    TextView txtHome = view.findViewById(R.id.txtHome);
+                    txtHome.setText(homeName);
+                    TextView txtHomeOnTarget = view.findViewById(R.id.txtHomeOnTarget);
+                    TextView txtAway = view.findViewById(R.id.txtAway);
+                    txtAway.setText(awayName);
+
+                    if(data != null){
+                        TextView txtAwayOnTarget = view.findViewById(R.id.txtAwayOnTarget);
+                        txtAwayOnTarget.setText(getAwayData(data.getShotsOnTarget()));
+                        TextView txtAwayOffTarget = view.findViewById(R.id.txtAwayOffTarget);
+                        txtAwayOffTarget.setText(getAwayData(data.getShotsOffTarget()));
+                        TextView txtAwayPossession = view.findViewById(R.id.txtAwayPossession);
+                        txtAwayPossession.setText(getAwayData(data.getPossesion()));
+                        TextView txtAwayOffside = view.findViewById(R.id.txtAwayOffside);
+                        txtAwayOffside.setText(getAwayData(data.getOffsides()));
+                        TextView txtAwayConner = view.findViewById(R.id.txtAwayConner);
+                        txtAwayConner.setText(getAwayData(data.getCorners()));
+                        TextView txtAwayYellowCard = view.findViewById(R.id.txtAwayYellowCard);
+                        txtAwayYellowCard.setText(getAwayData(data.getYellowCards()));
+                        TextView txtAwayRedCard = view.findViewById(R.id.txtAwayRedCard);
+                        txtAwayRedCard.setText(getAwayData(data.getRedCards()));
+
+                        txtHomeOnTarget.setText(getHomeData(data.getShotsOnTarget()));
+                        TextView txtHomeOffTarget = view.findViewById(R.id.txtHomeOfftarget);
+                        txtHomeOffTarget.setText(getHomeData(data.getShotsOffTarget()));
+                        TextView txtHomePossession = view.findViewById(R.id.txtHomePossession);
+                        txtHomePossession.setText(getHomeData(data.getPossesion()));
+                        TextView txtHomeOffside = view.findViewById(R.id.txtHomeOffsides);
+                        txtHomeOffside.setText(getHomeData(data.getOffsides()));
+                        TextView txtHomeConner = view.findViewById(R.id.txtHomeConner);
+                        txtHomeConner.setText(getHomeData(data.getCorners()));
+                        TextView txtHomeYellowCard = view.findViewById(R.id.txtHomeYellowCard);
+                        txtHomeYellowCard.setText(getHomeData(data.getYellowCards()));
+                        TextView txtHomeRedCard = view.findViewById(R.id.txtHomeRedCard);
+                        txtHomeRedCard.setText(getHomeData(data.getRedCards()));
+                    }
+                    else {
+                        Log.d("check","null data");
+                    }
                 }catch (NullPointerException exception){
                     data = new MatchDetailData();
                     data.setShotsOnTarget("");
@@ -96,46 +140,6 @@ public class StatisticFragment extends Fragment {
             }
         });
 
-        TextView txtScore = view.findViewById(R.id.txtScore);
-        txtScore.setText(score);
-
-        //set home stat
-        TextView txtHome = view.findViewById(R.id.txtHome);
-        txtHome.setText(homeName);
-        TextView txtHomeOnTarget = view.findViewById(R.id.txtHomeOnTarget);
-        TextView txtAway = view.findViewById(R.id.txtAway);
-        txtAway.setText(awayName);
-
-        if(data != null){
-            TextView txtAwayOnTarget = view.findViewById(R.id.txtAwayOnTarget);
-            txtAwayOnTarget.setText(getAwayData(data.getShotsOnTarget()));
-            TextView txtAwayOffTarget = view.findViewById(R.id.txtAwayOffTarget);
-            txtAwayOffTarget.setText(getAwayData(data.getShotsOffTarget()));
-            TextView txtAwayPossession = view.findViewById(R.id.txtAwayPossession);
-            txtAwayPossession.setText(getAwayData(data.getPossesion()));
-            TextView txtAwayOffside = view.findViewById(R.id.txtAwayOffside);
-            txtAwayOffside.setText(getAwayData(data.getOffsides()));
-            TextView txtAwayConner = view.findViewById(R.id.txtAwayConner);
-            txtAwayConner.setText(getAwayData(data.getCorners()));
-            TextView txtAwayYellowCard = view.findViewById(R.id.txtAwayYellowCard);
-            txtAwayYellowCard.setText(getAwayData(data.getYellowCards()));
-            TextView txtAwayRedCard = view.findViewById(R.id.txtAwayRedCard);
-            txtAwayRedCard.setText(getAwayData(data.getRedCards()));
-
-            txtHomeOnTarget.setText(getHomeData(data.getShotsOnTarget()));
-            TextView txtHomeOffTarget = view.findViewById(R.id.txtHomeOfftarget);
-            txtHomeOffTarget.setText(getHomeData(data.getShotsOffTarget()));
-            TextView txtHomePossession = view.findViewById(R.id.txtHomePossession);
-            txtHomePossession.setText(getHomeData(data.getPossesion()));
-            TextView txtHomeOffside = view.findViewById(R.id.txtHomeOffsides);
-            txtHomeOffside.setText(getHomeData(data.getOffsides()));
-            TextView txtHomeConner = view.findViewById(R.id.txtHomeConner);
-            txtHomeConner.setText(getHomeData(data.getCorners()));
-            TextView txtHomeYellowCard = view.findViewById(R.id.txtHomeYellowCard);
-            txtHomeYellowCard.setText(getHomeData(data.getYellowCards()));
-            TextView txtHomeRedCard = view.findViewById(R.id.txtHomeRedCard);
-            txtHomeRedCard.setText(getHomeData(data.getRedCards()));
-        }
 
         return view;
 

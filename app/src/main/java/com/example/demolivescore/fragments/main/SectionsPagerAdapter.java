@@ -25,7 +25,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     private String awayName;
     private String score;
     private Integer match_id;
-    private MatchDetailData data;
 
     public Integer getMatch_id() {
         return match_id;
@@ -33,14 +32,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     public void setMatch_id(Integer match_id) {
         this.match_id = match_id;
-    }
-
-    public MatchDetailData getData() {
-        return data;
-    }
-
-    public void setData(MatchDetailData data) {
-        this.data = data;
     }
 
     public boolean isGetAble() {

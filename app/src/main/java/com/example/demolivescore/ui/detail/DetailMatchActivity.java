@@ -16,9 +16,6 @@ public class DetailMatchActivity extends AppCompatActivity {
     private ActivityDetailMatchBinding binding;
     private TabLayout tabLayout;
 
-    MatchAPI matchAPI;
-    private MatchDetailData data;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +26,6 @@ public class DetailMatchActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         Integer matchId = extras.getInt("match_id");
-
         String score = extras.getString("score");
         String home_name = extras.getString("home_name");
         String away_name = extras.getString("away_name");
