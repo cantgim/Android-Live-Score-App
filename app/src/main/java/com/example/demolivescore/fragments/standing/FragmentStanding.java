@@ -61,8 +61,34 @@ public class FragmentStanding extends Fragment {
     RecyclerAdapterStanding adapterStanding;
     ArrayList<Team> teams = new ArrayList<>();
     Spinner spinner;
-    String league[] = {"PremierLeague","Laliga"};
+    String league[] = {"Premier League","Laliga","Bundesliga","Series A","League 1"};
     Call<TeamDto> call;
+
+    public void getTeam(Call<TeamDto> call, View view){
+        call.enqueue(new Callback<TeamDto>() {
+            @Override
+            public void onResponse(Call<TeamDto> call, Response<TeamDto> response) {
+                TeamDto rsDto = response.body();
+                TeamData data = rsDto.getData();
+                for (Team team : data.getTable()) {
+                    teams.add(team);
+                }
+
+                adapterStanding = new RecyclerAdapterStanding(teams);
+                adapterStanding.context = getActivity().getApplicationContext();
+                recyclerView.setAdapter(adapterStanding);
+
+
+            }
+
+            @Override
+            public void onFailure(Call<TeamDto> call, Throwable t) {
+                call.cancel();
+            }
+        });
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -80,59 +106,28 @@ public class FragmentStanding extends Fragment {
                 Adapter adapter = adapterView.getAdapter();
                 String league = (String) adapter.getItem(i);
                 teams.removeAll(teams);
-                if(league.equals("PremierLeague")){
-
+                if(league.equals("Premier League")){
                     call = countryAPI.getListLeagueStanding();
-                    call.enqueue(new Callback<TeamDto>() {
-                        @Override
-                        public void onResponse(Call<TeamDto> call, Response<TeamDto> response) {
-                            TeamDto rsDto = response.body();
-                            TeamData data = rsDto.getData();
-                            for (Team team : data.getTable()) {
-                                teams.add(team);
-                            }
-
-                            adapterStanding = new RecyclerAdapterStanding(teams);
-                            adapterStanding.context = getActivity().getApplicationContext();
-                            recyclerView.setAdapter(adapterStanding);
-
-
-                        }
-
-                        @Override
-                        public void onFailure(Call<TeamDto> call, Throwable t) {
-                            call.cancel();
-                        }
-                    });
-                    recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-
+                    getTeam(call, view);
                 }
                 if(league.equals("Laliga")){
-
                     call = countryAPI.getListLeagueStandingLaliga();
-                    call.enqueue(new Callback<TeamDto>() {
-                        @Override
-                        public void onResponse(Call<TeamDto> call, Response<TeamDto> response) {
-                            TeamDto rsDto = response.body();
-                            TeamData data = rsDto.getData();
-                            for (Team team : data.getTable()) {
-                                teams.add(team);
-                            }
+                    getTeam(call, view);
+                }
 
-                            adapterStanding = new RecyclerAdapterStanding(teams);
-                            adapterStanding.context = getActivity().getApplicationContext();
-                            recyclerView.setAdapter(adapterStanding);
+                if(league.equals("Bundesliga")){
+                    call = countryAPI.getListLeagueStandingGermany();
+                    getTeam(call, view);
+                }
 
-                        }
+                if(league.equals("Series A")){
+                    call = countryAPI.getListLeagueStandingItalia();
+                    getTeam(call, view);
+                }
 
-                        @Override
-                        public void onFailure(Call<TeamDto> call, Throwable t) {
-                            call.cancel();
-                        }
-                    });
-                    recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-
-
+                if(league.equals("League 1")){
+                    call = countryAPI.getListLeagueStandingFrance();
+                    getTeam(call, view);
                 }
 
             }

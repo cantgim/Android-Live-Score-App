@@ -18,4 +18,13 @@ public interface CountryAPI {
 
     @GET("leagues/table.json?key=PJRGYfC1NxmGPPnn&secret=8VPl12cJkrkOWbNLUErTU4VHBhoq6LNe&competition_id=3")
     Call<TeamDto> getListLeagueStandingLaliga();
+
+    @GET("leagues/table.json?key=PJRGYfC1NxmGPPnn&secret=8VPl12cJkrkOWbNLUErTU4VHBhoq6LNe&competition_id=1")
+    Call<TeamDto> getListLeagueStandingGermany();
+
+    @GET("leagues/table.json?key=PJRGYfC1NxmGPPnn&secret=8VPl12cJkrkOWbNLUErTU4VHBhoq6LNe&competition_id=5")
+    Call<TeamDto> getListLeagueStandingFrance();
+
+    @GET("leagues/table.json?key=PJRGYfC1NxmGPPnn&secret=8VPl12cJkrkOWbNLUErTU4VHBhoq6LNe&competition_id=4")
+    Call<TeamDto> getListLeagueStandingItalia();
 }

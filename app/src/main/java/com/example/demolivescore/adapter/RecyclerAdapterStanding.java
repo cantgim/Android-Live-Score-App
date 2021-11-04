@@ -76,8 +76,35 @@ public class RecyclerAdapterStanding extends RecyclerView.Adapter<RecyclerAdapte
             case 9:
                 holder.imageView.setImageResource(R.drawable.everton);
                 break;
-            default:
-                holder.imageView.setImageResource(R.drawable.westham);
+            case 10:
+                holder.imageView.setImageResource(R.drawable.leicester);
+                break;
+            case 11:
+                holder.imageView.setImageResource(R.drawable.brendfort);
+                break;
+            case 12:
+                holder.imageView.setImageResource(R.drawable.crystal);
+                break;
+            case 13:
+                holder.imageView.setImageResource(R.drawable.southamton);
+                break;
+            case 14:
+                holder.imageView.setImageResource(R.drawable.aston);
+                break;
+            case 15:
+                holder.imageView.setImageResource(R.drawable.watford);
+                break;
+            case 16:
+                holder.imageView.setImageResource(R.drawable.leed);
+                break;
+            case 17:
+                holder.imageView.setImageResource(R.drawable.burney);
+                break;
+            case 18:
+                holder.imageView.setImageResource(R.drawable.newcastle);
+                break;
+            case 19:
+                holder.imageView.setImageResource(R.drawable.norwich);
                 break;
         }
 
