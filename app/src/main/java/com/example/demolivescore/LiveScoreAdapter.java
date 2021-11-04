@@ -36,7 +36,7 @@ public class LiveScoreAdapter extends RecyclerView.Adapter<LiveScoreAdapter.View
     @Override
     public void onBindViewHolder(@androidx.annotation.NonNull ViewHolder holder, int position) {
         Match match = matches.get(position);
-        holder.status.setText("Live");
+        holder.status.setText(match.getTime());
         holder.away.setText(match.getAwayName());
         holder.awayScore.setText(match.getScore().substring(4).trim());
         holder.home.setText(match.getHomeName());

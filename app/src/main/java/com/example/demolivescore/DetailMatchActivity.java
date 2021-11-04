@@ -30,7 +30,7 @@ import retrofit2.Response;
 public class DetailMatchActivity extends AppCompatActivity {
 
     private ActivityDetailMatchBinding binding;
-    private String[] tabs = {"Statistic", "Ranking"};
+    //private String[] tabs = {"Statistic", "Ranking"};
     private TabLayout tabLayout;
 
     MatchAPI matchAPI;
@@ -42,13 +42,7 @@ public class DetailMatchActivity extends AppCompatActivity {
         binding = ActivityDetailMatchBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-        ViewPager viewPager = binding.viewPager;
-        viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = binding.tabs;
-        tabs.setupWithViewPager(viewPager);
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+
 
         Bundle extras = getIntent().getExtras();
         String matchId = extras.getString("match_id");
@@ -56,6 +50,7 @@ public class DetailMatchActivity extends AppCompatActivity {
         String score = extras.getString("score");
         String home_name = extras.getString("home_name");
         String away_name = extras.getString("away_name");
+        boolean getAble = true;
 
         matchAPI = RetrofitClient.getClient().create(MatchAPI.class);
         Call<MatchDetailDto> call = matchAPI.getMatchStatistic(matchId);
@@ -63,7 +58,18 @@ public class DetailMatchActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MatchDetailDto> call, Response<MatchDetailDto> response) {
                 MatchDetailDto matchDetailDto = response.body();
-                data = matchDetailDto.getData();
+                try{
+                    data = matchDetailDto.getData();
+                }catch (NullPointerException exception){
+                    data = new MatchDetailData();
+                    data.setShotsOnTarget("");
+                    data.setShotsOffTarget("");
+                    data.setCorners("");
+                    data.setOffsides("");
+                    data.setRedCards("");
+                    data.setYellowCards("");
+                    data.setPossesion("");
+                }
             }
 
             @Override
@@ -72,57 +78,19 @@ public class DetailMatchActivity extends AppCompatActivity {
             }
         });
 
-        TextView txtScore = this.findViewById(R.id.txtScore);
-        txtScore.setText(score);
-        TextView txtHome = this.findViewById(R.id.txtHome);
-        txtHome.setText(home_name);
-        ImageView imgHome = this.findViewById(R.id.imgHome);
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        sectionsPagerAdapter.setData(data);
+        sectionsPagerAdapter.setHomeName(home_name);
+        sectionsPagerAdapter.setAwayName(away_name);
+        sectionsPagerAdapter.setScore(score);
 
-        TextView txtHomeOnTarget = this.findViewById(R.id.txtHomeOnTarget);
-        txtHomeOnTarget.setText(getHomeData(data.getShotsOnTarget()));
-        TextView txtHomeOffTarget = this.findViewById(R.id.txtHomeOfftarget);
-        txtHomeOffTarget.setText(getHomeData(data.getShotsOffTarget()));
-        TextView txtHomePossession = this.findViewById(R.id.txtHomePossession);
-        txtHomePossession.setText(getHomeData(data.getPossesion()));
-        TextView txtHomeOffside = this.findViewById(R.id.txtHomeOffsides);
-        txtHomeOffside.setText(getHomeData(data.getOffsides()));
-        TextView txtHomeYellowCard = this.findViewById(R.id.txtHomeYellowCard);
-        txtHomeYellowCard.setText(getHomeData(data.getYellowCards()));
-        TextView txtHomeRedCard = this.findViewById(R.id.txtHomeRedCard);
-        txtHomeRedCard.setText(getHomeData(data.getRedCards()));
-        TextView txtHomeConner = this.findViewById(R.id.txtHomeConner);
-        txtHomeConner.setText(getHomeData(data.getCorners()));
+        ViewPager viewPager = binding.viewPager;
+        viewPager.setAdapter(sectionsPagerAdapter);
+        TabLayout tabs = binding.tabs;
+        tabs.setupWithViewPager(viewPager);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
 
-        TextView txtAway = this.findViewById(R.id.txtAway);
-        txtAway.setText(away_name);
-        ImageView imgAway = this.findViewById(R.id.imgAway);
-        TextView txtAwayOnTarget = this.findViewById(R.id.txtAwayOnTarget);
-        txtAwayOnTarget.setText(getAwayData(data.getShotsOnTarget()));
-        TextView txtAwayOffTarget = this.findViewById(R.id.txtAwayOffTarget);
-        txtAwayOffTarget.setText(getAwayData(data.getShotsOffTarget()));
-        TextView txtAwayPossession = this.findViewById(R.id.txtAwayPossession);
-        txtAwayPossession.setText(getAwayData(data.getPossesion()));
-        TextView txtAwayOffside = this.findViewById(R.id.txtAwayOffside);
-        txtAwayOffside.setText(getAwayData(data.getOffsides()));
-        TextView txtAwayYellowCard = this.findViewById(R.id.txtAwayYellowCard);
-        txtAwayYellowCard.setText(getAwayData(data.getYellowCards()));
-        TextView txtAwayRedCard = this.findViewById(R.id.txtAwayRedCard);
-        txtAwayRedCard.setText(getAwayData(data.getYellowCards()));
-        TextView txtAwayConner = this.findViewById(R.id.txtAwayConner);
-        txtAwayConner.setText(getAwayData(data.getCorners()));
 
-    }
-    public String getHomeData(String raw_data){
-        if(raw_data.isEmpty()|| raw_data==null){
-            return "";
-        }
-        return raw_data.substring(0,raw_data.indexOf(":")).trim();
-    }
-
-    private String getAwayData(String raw_data){
-        if(raw_data.isEmpty()|| raw_data==null){
-            return "";
-        }
-        return raw_data.substring(raw_data.indexOf(":")+1).trim();
     }
 }

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.demolivescore.dto.MatchDetailDto;
+import com.example.demolivescore.model.Match;
 import com.example.demolivescore.model.MatchDetailData;
 import com.example.demolivescore.service.MatchAPI;
 import com.example.demolivescore.service.RetrofitClient;
@@ -25,6 +26,17 @@ import retrofit2.Response;
  * create an instance of this fragment.
  */
 public class StatisticFragment extends Fragment {
+
+    private MatchDetailData data;
+    public MatchDetailData getData() {
+        return data;
+    }
+
+    public void setData(MatchDetailData data) {
+        this.data = data;
+    }
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,8 +85,6 @@ public class StatisticFragment extends Fragment {
 
         return inflater.inflate(R.layout.fragment_statistic, container, false);
     }
-    private MatchAPI matchAPI;
-    private MatchDetailData data;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){

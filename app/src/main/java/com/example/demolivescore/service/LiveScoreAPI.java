@@ -10,4 +10,5 @@ public interface LiveScoreAPI {
     Call<LiveScoreDto> getLiveScore();
 
 
+
 }
