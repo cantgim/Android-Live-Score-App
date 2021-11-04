@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.demolivescore.R;
 import com.example.demolivescore.model.News;
 import com.example.demolivescore.ui.detail.Detail_News;
-import com.example.demolivescore.ui.search.SearchActivity;
 
 import java.util.List;
 

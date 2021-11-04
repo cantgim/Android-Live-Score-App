@@ -3,42 +3,36 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/admin/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.1671195652173913" />
-        <entry key="..\:/Users/admin/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/border.xml" value="0.2203125" />
-        <entry key="..\:/Users/admin/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/admin/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_tab.xml" value="0.16530797101449277" />
-        <entry key="..\:/Users/admin/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_standing.xml" value="0.25" />
-        <entry key="..\:/Users/admin/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_tab.xml" value="0.33" />
-        <entry key="..\:/Users/admin/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/standing_layout.xml" value="0.33" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable-v24/border_news.xml" value="0.17314814814814813" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable-v24/border_search.xml" value="0.17314814814814813" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.17314814814814813" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/border.xml" value="0.17314814814814813" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.17314814814814813" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.17314814814814813" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/match_border.xml" value="0.17314814814814813" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_detail_match.xml" value="0.254981884057971" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_detail_news.xml" value="0.264" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_livescore.xml" value="0.259375" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_main2.xml" value="0.259375" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_match_detail.xml" value="0.259375" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_search.xml" value="0.259375" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/border_search.xml" value="0.2453125" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fixture_item.xml" value="0.6" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_detail_match.xml" value="0.254981884057971" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_favorites.xml" value="0.254981884057971" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_list_match.xml" value="0.254981884057971" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_news.xml" value="0.254981884057971" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_scores.xml" value="0.254981884057971" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_standing.xml" value="0.259375" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/item.xml" value="0.264" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/item_layout.xml" value="0.536" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/item_layout2.xml" value="0.4" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/main_standing.xml" value="0.254981884057971" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/news_item.xml" value="0.254981884057971" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/score_row.xml" value="0.536" />
-        <entry key="..\:/Users/dell/OneDrive/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/search_item_layout.xml" value="0.259375" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable-v24/border_news.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/border.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/ic_baseline_sports_soccer_24.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/ic_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/ic_refresh_24.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/ic_search_24.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/ic_sports_soccer_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/ic_star_border_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/logo_random_soccer_48.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/logo_random_soccer_60dp.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/drawable/match_border.xml" value="0.2546875" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_detail_match.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_detail_news.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_fixtures.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_main.xml" value="0.4742468415937804" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_match_detail.xml" value="0.4" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/activity_search.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fixture_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_detail_match.xml" value="0.2115036231884058" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_favorites.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/fragment_statistic.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/live_score_row.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/score_row.xml" value="0.4" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/layout/standing_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/menu/navigation_bottom.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/menu/top_app_bar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/Desktop/Livescore/Android-Live-Score-App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11979166666666667" />
       </map>
     </option>
