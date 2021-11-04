@@ -87,5 +87,4 @@
         app:itemTextColor="@android:color/white"
         app:menu="@menu/navigation_bottom"
         />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

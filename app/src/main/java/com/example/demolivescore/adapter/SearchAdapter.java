@@ -1,6 +1,8 @@
 package com.example.demolivescore.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,25 +20,24 @@ import com.example.demolivescore.MainActivity;
 import com.example.demolivescore.R;
 import com.example.demolivescore.model.Country;
 import com.example.demolivescore.service.FixtureAPI;
+import com.example.demolivescore.ui.fixtures.FixturesActivity;
 import com.example.demolivescore.ui.search.SearchActivity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
     private List<Country> countries;
     public SearchActivity searchActivity;
 
-    private int Bundesliga = 1,
-                PremierLeague = 2,
-                LaLiga = 3,
-                Seria = 4,
-                Ligue = 5;
+    private HashMap<String, Integer> competitionsMap = new HashMap<>();
 
     public Context context;
 
     public SearchAdapter(List<Country> countries){
         this.countries = countries;
+        setCompetitionsMap();
     }
 
     public SearchAdapter(SearchActivity searchActivity, List<Country> countryList) {
@@ -86,8 +87,20 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
                 @Override
                 public void onClick(View view) {
                     // Toast.makeText(view.getContext(), "News" + countries.get(0).getName() + " is clicked ", Toast.LENGTH_LONG).show();
+                    Integer competitionId = competitionsMap.get(countries.get(0).getName());
+                    Intent intent = new Intent(context, FixturesActivity.class);
+                    intent.putExtra("competition_id", competitionId);
+                    context.startActivity(intent);
                 }
             });
         }
+    }
+
+    private void setCompetitionsMap() {
+        competitionsMap.put("Germany", 1);
+        competitionsMap.put("England", 2);
+        competitionsMap.put("Spain", 3);
+        competitionsMap.put("Italy", 4);
+        competitionsMap.put("France", 5);
     }
 }

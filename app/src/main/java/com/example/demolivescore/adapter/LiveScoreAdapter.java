@@ -16,8 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class LiveScoreAdapter extends RecyclerView.Adapter<LiveScoreAdapter.ViewHolder> {
     private ArrayList<Match> matches;
     private Context mContext;

@@ -77,7 +77,7 @@ public class FixturesFragment extends Fragment {
         //recyclerView.setAdapter(mFixturesAdapter);
         //recyclerView.setNestedScrollingEnabled(false);
         FixtureAPI fixtureAPI = RetrofitClient.getClient().create(FixtureAPI.class);
-        Call<FixturesDto> call = fixtureAPI.getFixturesByCompetition("2");
+        Call<FixturesDto> call = fixtureAPI.getFixturesByCompetition(2);
         // fetchFixtureItems();
         call.enqueue(new Callback<FixturesDto>(){
 
@@ -110,7 +110,7 @@ public class FixturesFragment extends Fragment {
 
     private void fetchFixtureItems(){
         FixtureAPI fixtureAPI = RetrofitClient.getClient().create(FixtureAPI.class);
-        Call<FixturesDto> call = fixtureAPI.getFixturesByCompetition("2");
+        Call<FixturesDto> call = fixtureAPI.getFixturesByCompetition(2);
         call.enqueue(new Callback<FixturesDto>(){
 
             @Override
