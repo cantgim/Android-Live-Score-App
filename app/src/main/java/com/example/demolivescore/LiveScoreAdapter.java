@@ -48,6 +48,7 @@ public class LiveScoreAdapter extends RecyclerView.Adapter<LiveScoreAdapter.View
                 if(!isLongClick){
                     Intent intent = new Intent(holder.itemView.getContext(),DetailMatchActivity.class);
                     intent.putExtra("match_id",match.getId());
+                    //intent.putExtra("match_id",(Integer)283883);
                     intent.putExtra("score",match.getScore());
                     intent.putExtra("home_name",match.getHomeName());
                     intent.putExtra("away_name",match.getAwayName());

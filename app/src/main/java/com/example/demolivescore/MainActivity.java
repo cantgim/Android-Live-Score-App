@@ -17,6 +17,7 @@ import com.example.demolivescore.model.LiveScoreData;
 import com.example.demolivescore.model.Match;
 import com.example.demolivescore.service.CountryAPI;
 import com.example.demolivescore.service.LiveScoreAPI;
+import com.example.demolivescore.service.PastMatchesAPI;
 import com.example.demolivescore.service.RetrofitClient;
 
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     TextView responseText;
     CountryAPI countryAPI;
     LiveScoreAPI liveScoreAPI;
+    PastMatchesAPI pastMatchesAPI;
     RecyclerView recyclerView;
     LiveScoreAdapter liveScoreAdapter;
     ArrayList<Match> matches;
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         //responseText = (TextView) findViewById(R.id.responseText);
         //countryAPI = RetrofitClient.getClient().create(CountryAPI.class);
         liveScoreAPI = RetrofitClient.getClient().create(LiveScoreAPI.class);
+        pastMatchesAPI = RetrofitClient.getClient().create(PastMatchesAPI.class);
         recyclerView = findViewById(R.id.liveScoreView);
         matches = new ArrayList<>();
 
@@ -73,11 +76,12 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<LiveScoreDto>() {
             @Override
             public void onResponse(Call<LiveScoreDto> call, Response<LiveScoreDto> response) {
-                String displayResponse = "";
                 LiveScoreDto lsDto = response.body();
                 LiveScoreData data = lsDto.getData();
+
                 for(Match match : data.getMatch()){
                     matches.add(match);
+
                 }
 //                responseText.setText(displayResponse);
                 //matches = (ArrayList<Match>) data.getMatch();

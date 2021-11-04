@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.demolivescore.R;
+import com.example.demolivescore.StatisticFragment;
 import com.example.demolivescore.model.MatchDetailData;
 
 /**
@@ -27,7 +28,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     private String homeName;
     private String awayName;
     private String score;
+    private Integer match_id;
     private MatchDetailData data;
+
+    public Integer getMatch_id() {
+        return match_id;
+    }
+
+    public void setMatch_id(Integer match_id) {
+        this.match_id = match_id;
+    }
 
     public MatchDetailData getData() {
         return data;
@@ -76,11 +86,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-//        return PlaceholderFragment.newInstance(position + 1);
-        Log.d("check create", "created");
-        return PlaceholderFragment.newInstance(position, homeName, awayName, score, data);
+        if(position==0)
+            return StatisticFragment.newInstance(match_id,homeName,awayName,score);
+        else
+            return new Fragment();
     }
 
     @Nullable

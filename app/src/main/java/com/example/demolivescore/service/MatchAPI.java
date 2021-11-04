@@ -9,5 +9,5 @@ import retrofit2.http.Query;
 
 public interface MatchAPI {
     @GET("https://livescore-api.com/api-client/matches/stats.json?&key=pyz5S7m6r0SC5Wrn&secret=qopVnOKW2wfSzyxY664Zer5GsXixTKVk")
-    Call<MatchDetailDto> getMatchStatistic(@Query("match_id") String matchId);
+    Call<MatchDetailDto> getMatchStatistic(@Query("match_id") Integer matchId);
 }
