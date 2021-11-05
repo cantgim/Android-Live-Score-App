@@ -85,7 +85,7 @@ public class StatisticFragment extends Fragment {
                     //set home stat
                     TextView txtHome = view.findViewById(R.id.txtHome);
                     txtHome.setText(homeName);
-                    TextView txtHomeOnTarget = view.findViewById(R.id.txtHomeOnTarget);
+
                     TextView txtAway = view.findViewById(R.id.txtAway);
                     txtAway.setText(awayName);
 
@@ -105,6 +105,7 @@ public class StatisticFragment extends Fragment {
                         TextView txtAwayRedCard = view.findViewById(R.id.txtAwayRedCard);
                         txtAwayRedCard.setText(getAwayData(data.getRedCards()));
 
+                        TextView txtHomeOnTarget = view.findViewById(R.id.txtHomeOnTarget);
                         txtHomeOnTarget.setText(getHomeData(data.getShotsOnTarget()));
                         TextView txtHomeOffTarget = view.findViewById(R.id.txtHomeOfftarget);
                         txtHomeOffTarget.setText(getHomeData(data.getShotsOffTarget()));
@@ -152,10 +153,16 @@ public class StatisticFragment extends Fragment {
     }
 
     private String getHomeData(String raw_data){
+        if(raw_data==null){
+            return "N/A";
+        }
         return raw_data.substring(0,raw_data.indexOf(":")).trim();
     }
 
     private String getAwayData(String raw_data){
+        if(raw_data==null){
+            return "N/A";
+        }
         return raw_data.substring(raw_data.indexOf(":")+1).trim();
     }
 }
